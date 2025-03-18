@@ -8,32 +8,6 @@
 import Foundation
 import Combine
 
-/*class HomeViewModel: ObservableObject {
-    @Published var articles: [NewsArticle] = []
-    private var cancellables = Set<AnyCancellable>()
-    let API_Key = "15d9162db23f48cdaa8df06bb746bef0"
-    let apiKey = Bundle.main.apiKey
-    
-    func fetchNews() {
-        print("API Key: \(apiKey)") // Debugging
-        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=\(API_Key)") else { return }
-        
-        URLSession.shared.dataTaskPublisher(for: url)
-            .map { $0.data }
-            .decode(type: NewsResponse.self, decoder: JSONDecoder())
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { _ in }, receiveValue: { response in
-                print("\(response) response")
-                self.articles = response.articles
-                print("\(self.articles) articles")
-            })
-            .store(in: &cancellables)
-    }
-}*/
-
-import SwiftUI
-//import Combine
-
 class HomeViewModel: ObservableObject {
     @Published var articles: [Article] = []
     private var cancellables = Set<AnyCancellable>()
