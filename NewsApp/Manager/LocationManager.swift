@@ -17,6 +17,7 @@ class LocationManager: NSObject, ObservableObject {
         self.locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization() // Request permission
         self.locationManager.startUpdatingLocation() // Start getting location
+        print("LocationManager is being called")
     }
 }
 
@@ -33,6 +34,7 @@ extension LocationManager: CLLocationManagerDelegate {
             if let country = placemarks?.first?.isoCountryCode {
                 DispatchQueue.main.async {
                     self.countryCode = country.lowercased() // Example: "us", "gb", "ng"
+                    print("self.countryCode: \(self.countryCode ?? "No Code")")
                 }
             }
         }

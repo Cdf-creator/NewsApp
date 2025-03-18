@@ -30,6 +30,7 @@ struct LocationNewsView: View {
                 //view load
             }
             .onChange(of: locationManager.countryCode) { newCountryCode in
+                print("onchanged is called")
                 if let countryCode = newCountryCode {
                     print("countryCode: \(countryCode)")
                     viewModel.fetchNews(for: countryCode)
